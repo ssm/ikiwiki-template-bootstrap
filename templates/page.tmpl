@@ -21,6 +21,19 @@
 <TMPL_ELSE>
 <link rel="stylesheet" href="<TMPL_VAR BASEURL>local.css" type="text/css" />
 </TMPL_IF>
+<link href="/components/bootstrap/css/bootstrap.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="/components/bootstrap/css/bootstrap-responsive.css"
+      rel="stylesheet">
+
+<style>
+  body {
+    padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+  }
+</style>
+<!--[if lt IE 9]>
+<script src="/components/html5shiv.js"></script>
+<![endif]-->
 <TMPL_IF EDITURL>
 <link rel="alternate" type="application/x-wiki" title="Edit this page" href="<TMPL_VAR EDITURL>" />
 </TMPL_IF>
@@ -37,33 +50,26 @@
 </TMPL_IF>
 </TMPL_LOOP>
 </head>
+
 <body>
 
 <TMPL_IF HTML5><article class="page"><TMPL_ELSE><div class="page"></TMPL_IF>
 
 <TMPL_IF HTML5><section class="pageheader"><TMPL_ELSE><div class="pageheader"></TMPL_IF>
 <TMPL_IF HTML5><header class="header"><TMPL_ELSE><div class="header"></TMPL_IF>
-<span>
-<span class="parentlinks">
-<TMPL_LOOP PARENTLINKS>
-<a href="<TMPL_VAR URL>"><TMPL_VAR PAGE></a>/ 
-</TMPL_LOOP>
-</span>
-<span class="title">
-<TMPL_VAR TITLE>
-<TMPL_IF ISTRANSLATION>
-&nbsp;(<TMPL_VAR PERCENTTRANSLATED>%)
-</TMPL_IF>
-</span>
-</span>
-<TMPL_IF SEARCHFORM>
-<TMPL_VAR SEARCHFORM>
-</TMPL_IF>
-<TMPL_IF HTML5></header><TMPL_ELSE></div></TMPL_IF>
 
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner">
+<div class="container">
+<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="brand" href="/"><TMPL_VAR WIKINAME></a>
 <TMPL_IF HAVE_ACTIONS>
-<TMPL_IF HTML5><nav class="actions"><TMPL_ELSE><div class="actions"></TMPL_IF>
-<ul>
+<TMPL_IF HTML5><nav class="actions nav-collapse collapse"><TMPL_ELSE><div class="actions nav-collapse collapse"></TMPL_IF>
+<ul class="nav">
 <TMPL_IF EDITURL>
 <li><a href="<TMPL_VAR EDITURL>" rel="nofollow">Edit</a></li>
 </TMPL_IF>
@@ -94,6 +100,13 @@
 </ul>
 <TMPL_IF HTML5></nav><TMPL_ELSE></div></TMPL_IF>
 </TMPL_IF>
+</div>
+</div>
+</div>
+
+<TMPL_IF SEARCHFORM>
+<TMPL_VAR SEARCHFORM>
+</TMPL_IF>
 
 <TMPL_IF OTHERLANGUAGES>
 <TMPL_IF HTML5><nav id="otherlanguages"><TMPL_ELSE><div id="otherlanguages"></TMPL_IF>
@@ -114,6 +127,8 @@
 
 <TMPL_VAR TRAILS>
 
+<!-- OK above -->
+
 <TMPL_IF HTML5></section><TMPL_ELSE></div></TMPL_IF>
 
 <TMPL_IF SIDEBAR>
@@ -122,15 +137,33 @@
 <TMPL_IF HTML5></aside><TMPL_ELSE></div></TMPL_IF>
 </TMPL_IF>
 
-<div id="pagebody">
+<!-- BEGIN content -->
 
-<TMPL_IF HTML5><section id="content"><TMPL_ELSE><div id="content"></TMPL_IF>
+<TMPL_IF HTML5><section id="content" class="container"><TMPL_ELSE><div class="container"></TMPL_IF>
+
+<TMPL_IF HTML5><header class="jumbotron masthead" id="overview"><TMPL_ELSE><div class="jumbotron masthead"></TMPL_IF>
+<h1><TMPL_VAR TITLE></h1>
+<TMPL_IF ISTRANSLATION>
+&nbsp;(<TMPL_VAR PERCENTTRANSLATED>%)
+</TMPL_IF>
+
+<TMPL_IF HTML5></header><TMPL_ELSE></div></TMPL_IF>
+
+<div class="row">
+<div class="span12">
 <TMPL_VAR CONTENT>
+</div>
+</div>
+
 <TMPL_IF HTML5></section><TMPL_ELSE></div></TMPL_IF>
+
+<!-- END content -->
+
+<!-- BEGIN comments -->
 
 <TMPL_UNLESS DYNAMIC>
 <TMPL_IF COMMENTS>
-<TMPL_IF HTML5><section id="comments"><TMPL_ELSE><div id="comments"></TMPL_IF>
+<TMPL_IF HTML5><section id="comments" class="span12"><TMPL_ELSE><div id="comments" class="span12"></TMPL_IF>
 <TMPL_VAR COMMENTS>
 <TMPL_IF ADDCOMMENTURL>
 <div class="addcomment">
@@ -143,7 +176,9 @@
 </TMPL_IF>
 </TMPL_UNLESS>
 
-</div>
+<!-- END comments -->
+
+<!-- BEGIN footer -->
 
 <TMPL_IF HTML5><footer id="footer" class="pagefooter"><TMPL_ELSE><div id="footer" class="pagefooter"></TMPL_IF>
 <TMPL_UNLESS DYNAMIC>
@@ -203,7 +238,15 @@ Last edited <TMPL_VAR MTIME>
 <!-- from <TMPL_VAR WIKINAME> -->
 <TMPL_IF HTML5></footer><TMPL_ELSE></div></TMPL_IF>
 
+<!-- END footer -->
+
 <TMPL_IF HTML5></article><TMPL_ELSE></div></TMPL_IF>
+
+<!-- javascript
+============================================ -->
+<!-- placed at the end, so pages load faster -->
+<script src="/components/jquery.js"></script>
+<script src="/components/bootstrap/js/bootstrap.js"></script>
 
 </body>
 </html>
