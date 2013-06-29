@@ -127,14 +127,6 @@
 
 <!-- BEGIN content -->
 
-<TMPL_IF HTML5><header><TMPL_ELSE><div></TMPL_IF>
-<h1><TMPL_VAR TITLE></h1>
-<TMPL_IF ISTRANSLATION>
-&nbsp;(<TMPL_VAR PERCENTTRANSLATED>%)
-</TMPL_IF>
-
-<TMPL_IF HTML5></header><TMPL_ELSE></div></TMPL_IF>
-
 <div class="row">
 
 <TMPL_IF SIDEBAR>
@@ -145,6 +137,14 @@
 <TMPL_ELSE>
 <div class="span12">
 </TMPL_IF>
+
+<TMPL_IF HTML5><header><TMPL_ELSE><div></TMPL_IF>
+<h1><TMPL_VAR TITLE></h1>
+<TMPL_IF ISTRANSLATION>
+&nbsp;(<TMPL_VAR PERCENTTRANSLATED>%)
+</TMPL_IF>
+<TMPL_IF HTML5></header><TMPL_ELSE></div></TMPL_IF>
+
 <TMPL_VAR CONTENT>
 </div> <!-- /.span -->
 </div> <!-- /.row -->
