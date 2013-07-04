@@ -21,11 +21,9 @@
       </dd>
       <dt><i class="icon-comment"></i> Comment:</dt>
       <dd>
-        <div class="changelog span4">
-          <TMPL_LOOP MESSAGE>
-          <TMPL_IF LINE><TMPL_VAR LINE><br /></TMPL_IF>
-          </TMPL_LOOP>
-        </div>
+        <TMPL_LOOP MESSAGE>
+        <TMPL_IF LINE><TMPL_VAR LINE><br /></TMPL_IF>
+        </TMPL_LOOP>
       </dd>
       <dt><i class="icon-user"></i> Changed by:</dt>
       <dd>
