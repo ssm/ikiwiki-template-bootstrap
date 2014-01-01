@@ -56,17 +56,16 @@
 
 <body>
 
-<div class="navbar navbar-fixed-top">
-<div class="navbar-inner">
+<div class="navbar navbar-fixed-top" role="navigation">
 <div class="container">
-<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 <span class="icon-bar"></span>
 <span class="icon-bar"></span>
 <span class="icon-bar"></span>
 </button>
-<a class="brand" href="/"><TMPL_VAR WIKINAME></a>
+<a class="navbar-brand" href="/"><TMPL_VAR WIKINAME></a>
 <TMPL_IF HAVE_ACTIONS>
-<TMPL_IF HTML5><nav class="actions nav-collapse collapse"><TMPL_ELSE><div class="actions nav-collapse collapse"></TMPL_IF>
+<TMPL_IF HTML5><nav class="actions navbar-collapse collapse"><TMPL_ELSE><div class="actions nav-collapse collapse"></TMPL_IF>
 <ul class="nav">
 <TMPL_IF EDITURL>
 <li><a href="<TMPL_VAR EDITURL>" rel="nofollow">Edit</a></li>
@@ -100,7 +99,6 @@
 </TMPL_IF>
 </div>
 </div>
-</div>
 
 <TMPL_IF SEARCHFORM>
 <TMPL_VAR SEARCHFORM>
@@ -132,12 +130,12 @@
 <div class="row">
 
 <TMPL_IF SIDEBAR>
-<TMPL_IF HTML5><aside class="span3"><TMPL_ELSE><div class="span3"></TMPL_IF>
+<TMPL_IF HTML5><aside class="col-md-3"><TMPL_ELSE><div class="col-md-3"></TMPL_IF>
 <TMPL_VAR SIDEBAR>
 <TMPL_IF HTML5></aside><TMPL_ELSE></div></TMPL_IF>
-<div class="span9">
+<div class="col-md-9">
 <TMPL_ELSE>
-<div class="span12">
+<div class="col-md-12">
 </TMPL_IF>
 
 <TMPL_IF HTML5><header><TMPL_ELSE><div></TMPL_IF>
@@ -157,7 +155,7 @@
 
 <TMPL_UNLESS DYNAMIC>
 <TMPL_IF COMMENTS>
-<TMPL_IF HTML5><section id="comments" class="span12"><TMPL_ELSE><div id="comments" class="span12"></TMPL_IF>
+<TMPL_IF HTML5><section id="comments" class="col-md-12"><TMPL_ELSE><div id="comments" class="col-md-12"></TMPL_IF>
 <TMPL_VAR COMMENTS>
 <TMPL_IF ADDCOMMENTURL>
 <div class="addcomment">

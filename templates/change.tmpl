@@ -8,9 +8,9 @@
 </TMPL_IF>
 <div class="row">
 
-  <div id="change-<TMPL_VAR REV>" class="span6">
+  <div id="change-<TMPL_VAR REV>" class="col-md-6">
     <dl class="dl-horizontal">
-      <dt><i class="icon-file"></i> Files changed:</dt>
+      <dt><i class="glyphicon glyphicon-file"></i> Files changed:</dt>
       <dd>
         <span class="pagelinks">
           <TMPL_LOOP PAGES>
@@ -19,13 +19,13 @@
           </TMPL_LOOP>
         </span>
       </dd>
-      <dt><i class="icon-comment"></i> Comment:</dt>
+      <dt><i class="glyphicon glyphicon-comment"></i> Comment:</dt>
       <dd>
         <TMPL_LOOP MESSAGE>
         <TMPL_IF LINE><TMPL_VAR LINE><br /></TMPL_IF>
         </TMPL_LOOP>
       </dd>
-      <dt><i class="icon-user"></i> Changed by:</dt>
+      <dt><i class="glyphicon glyphicon-user"></i> Changed by:</dt>
       <dd>
         <TMPL_IF AUTHORURL>
         <a href="<TMPL_VAR AUTHORURL>" rel="nofollow"><TMPL_VAR USER></a>
@@ -33,22 +33,22 @@
         <TMPL_VAR USER>
         </TMPL_IF>
       </dd>
-      <dt><i class="icon-upload"></i> Commit type:</dt>
+      <dt><i class="glyphicon glyphicon-upload"></i> Commit type:</dt>
       <dd><TMPL_VAR COMMITTYPE></dd>
-      <dt><i class="icon-time"></i> Date:</dt>
+      <dt><i class="glyphicon glyphicon-time"></i> Date:</dt>
       <dd><TMPL_VAR COMMITDATE></dd>
 
     </dl>
 
     <TMPL_IF REVERTURL>
     <span class="revert">
-      <a href="<TMPL_VAR REVERTURL>" title="revert" rel="nofollow"><i class="icon-remove-sign"></i>revert</a>
+      <a href="<TMPL_VAR REVERTURL>" title="revert" rel="nofollow"><i class="glyphicon glyphicon-remove-sign"></i>revert</a>
     </span>
     </TMPL_IF>
   </div>
 
   <TMPL_IF DIFF>
-  <div class="span6">
+  <div class="col-md-6">
     <pre><code class="diff">
 <TMPL_VAR DIFF>
     </code></pre>
