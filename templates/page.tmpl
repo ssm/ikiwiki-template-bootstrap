@@ -44,7 +44,7 @@
   </head>
 
 <body>
-
+  <a href="#content" class="sr-only">Skip to main content</a>
   <nav class="navbar navbar-default" role="navigation">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -129,12 +129,12 @@
 <div class="col-md-12">
 </TMPL_IF>
 
-<TMPL_IF HTML5><header><TMPL_ELSE><div></TMPL_IF>
+<div id="content">
 <h1><TMPL_VAR TITLE></h1>
 <TMPL_IF ISTRANSLATION>
 &nbsp;(<TMPL_VAR PERCENTTRANSLATED>%)
 </TMPL_IF>
-<TMPL_IF HTML5></header><TMPL_ELSE></div></TMPL_IF>
+</div>
 
 <TMPL_VAR CONTENT>
 </div> <!-- /.span -->
